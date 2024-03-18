@@ -1,5 +1,5 @@
 
-const Header = ({ cart }) => {
+const Header = ({ cart, removeFromCart }) => {
 
   const totalPaid = cart.reduce((total, item) => (
     total + (item.price * item.quantity)
@@ -64,6 +64,7 @@ const Header = ({ cart }) => {
                                   <button
                                     className="btn btn-danger"
                                     type="button"
+                                    onClick={() => removeFromCart(guitar.id)}
                                   >
                                     X
                                   </button>
