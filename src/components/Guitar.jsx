@@ -1,5 +1,5 @@
 
-const Guitar = () => {
+const Guitar = ({ data }) => {
 
   return (
     <div className="col-md-6 col-lg-4 my-4 row align-items-center">
