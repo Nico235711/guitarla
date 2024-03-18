@@ -1,12 +1,12 @@
 
-const Guitar = ({ guitarra }) => {
+const Guitar = ({ guitar }) => {
 
-  const { price, name, image, description } = guitarra
+  const { price, name, image, description } = guitar
 
   return (
     <div className="col-md-6 col-lg-4 my-4 row align-items-center">
       <div className="col-4">
-        <img className="img-fluid" src={`../public/img/${image}`} alt={`imagen guitarra: ${name}`} />
+        <img className="img-fluid" src={`/img/${image}.jpg`} alt={`imagen guitarra: ${name}`} />
       </div>
       <div className="col-8">
         <h3 className="text-black fs-4 fw-bold text-uppercase">{name}</h3>
