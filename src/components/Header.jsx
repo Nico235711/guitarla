@@ -1,6 +1,10 @@
 
 const Header = ({ cart }) => {
 
+  const totalPaid = cart.reduce((total, item) => (
+    total + (item.price * item.quantity)
+  ), 0)
+
   return (
     <header className="py-5 header">
       <div className="container-xl">
@@ -69,7 +73,7 @@ const Header = ({ cart }) => {
                           }
                         </tbody>
                       </table>
-                      <p className="text-end">Total pagar: <span className="fw-bold">$899</span></p>
+                      <p className="text-end">Total pagar: <span className="fw-bold">${totalPaid}</span></p>
                       <button className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
                     </>
                   ) : (
