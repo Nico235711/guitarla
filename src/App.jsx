@@ -16,9 +16,11 @@ function App() {
         <h2 className="text-center">Nuestra Colección</h2>
 
         <div className="row mt-5">
-          <Guitar 
-            data={data}
-          />
+          {
+            data?.map(guitarra => (
+              <Guitar key={guitarra.id} guitarra={guitarra} />
+            ))
+          }
         </div>
       </main>
 
