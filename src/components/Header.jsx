@@ -5,7 +5,7 @@ const Header = (
     removeFromCart,
     incrementQuantity,
     decrementQuantity,
-    setCart
+    cleanCart
   }) => {
 
   const totalPaid = cart.reduce((total, item) => (
@@ -84,7 +84,7 @@ const Header = (
                         </tbody>
                       </table>
                       <p className="text-end">Total pagar: <span className="fw-bold">${totalPaid}</span></p>
-                      <button className="btn btn-dark w-100 mt-3 p-2" onClick={() => setCart([])}>Vaciar Carrito</button>
+                      <button className="btn btn-dark w-100 mt-3 p-2" onClick={() => cleanCart()}>Vaciar Carrito</button>
                     </>
                   ) : (
                     <p className="text-center">El carrito esta vacio</p>
