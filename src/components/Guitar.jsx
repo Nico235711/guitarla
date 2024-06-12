@@ -1,5 +1,5 @@
 
-const Guitar = ({ guitar }) => {
+const Guitar = ({ guitar, addToCart }) => {
 
   const { name, description, price, image } = guitar
 
@@ -15,6 +15,10 @@ const Guitar = ({ guitar }) => {
         <button
           type="button"
           className="btn btn-dark w-100"
+          /* tiene que ser un callback porque si no la llama sin la necesidad de
+          esperar al evento de click
+          */
+          onClick={() => addToCart(guitar)}
         >Agregar al Carrito</button>
       </div>
     </div>
