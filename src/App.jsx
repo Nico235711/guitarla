@@ -14,6 +14,7 @@ const App = () => {
   function addToCart(item) {
     const itemExists = cart.findIndex(guitar => guitar.id === item.id)
     if (itemExists >= 0) { // si existe
+      if (cart[itemExists].quantity >= MAX_ITEMS) return
       const updatedCart = [...cart]
       updatedCart[itemExists].quantity++ // no muto el state original
       setCart(updatedCart)
@@ -51,6 +52,10 @@ const App = () => {
     setCart(updatedCart)
   }
 
+  function clearCart() {
+    setCart([])
+  }
+
   return (
     <>
       <Header
@@ -58,6 +63,7 @@ const App = () => {
         removeFromCart={removeFromCart} 
         increaseQuantity={increaseQuantity} 
         decreaseQuantity={decreaseQuantity} 
+        clearCart={clearCart} 
       />
 
       <main className="container-xl mt-5">
