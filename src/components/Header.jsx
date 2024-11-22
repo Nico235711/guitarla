@@ -1,9 +1,5 @@
-import { useCartContext } from "../hooks/useCartContext"
 
-
-export default function Header() {
-
-  const { cart, removeFromCart, cleanCart, increaseQuantity, decreaseQuantity, isEmpty, cartTotal } = useCartContext()
+export default function Header({ cart, removeFromCart, cleanCart, increaseQuantity, decreaseQuantity, isEmpty, cartTotal }) {
 
   return (
     <header className="py-5 header">

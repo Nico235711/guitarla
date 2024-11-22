@@ -1,16 +1,22 @@
 import Guitar from "./components/Guitar";
 import Header from "./components/Header";
 import { useCart } from "./hooks/useCart";
-import { useCartContext } from "./hooks/useCartContext";
-
 
 export default function App() {
 
-  const { data, addToCart } = useCartContext()
+  const { data, addToCart, cart, removeFromCart, cleanCart, increaseQuantity, decreaseQuantity, isEmpty, cartTotal } = useCart()
 
   return (
     <>
-      <Header />
+      <Header 
+        cart={cart}
+        removeFromCart={removeFromCart}
+        cleanCart={cleanCart}
+        increaseQuantity={increaseQuantity} 
+        decreaseQuantity={decreaseQuantity}
+        isEmpty={isEmpty}
+        cartTotal={cartTotal}
+      />
 
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
