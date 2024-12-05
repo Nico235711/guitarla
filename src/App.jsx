@@ -23,7 +23,7 @@ export default function App() {
 
         <div className="row mt-5">
           {data.map(guitar => (
-            // cuando itero, cada elemento debe ser unico por se agrega el key
+            // cuando itero, cada elemento debe ser unico por eso se agrega el key
             <Guitar
               key={guitar.id}
               guitar={guitar} 
