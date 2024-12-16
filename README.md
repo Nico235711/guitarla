@@ -1,78 +1,113 @@
-<h2>Carrito de Compras con React 🎸🛒</h2>
+# Proyecto de Aprendizaje de React
 
-<p>Este proyecto es un carrito de compras desarrollado en React, que tiene como objetivo consolidar conceptos básicos y fundamentales de la biblioteca. Durante el desarrollo, puse en práctica diversas funcionalidades que React ofrece, enfocándome en entender cómo funcionan los componentes, JSX, hooks y otras herramientas clave.</p>
+En este proyecto, aprendí a que hay diferentes maneras de escribir CSS en React, como CSS Plano, SASS, Modulos CSS, Styled Components, una librería basaba en componentes y Frameworks CSS.
 
-#
+## ¿Qué son los componentes en React?
 
-<h3>🛠️ Tecnologías utilizadas</h3>
+Los componentes en React son la forma en que se crean aplicaciones y sitios web. Un componente puede tener la extensión .jsx o .tsx; .js también es posible pero lo recomendado son las 2 primeras opciones.
 
-- React: Biblioteca principal para la creación de la interfaz.
+Un componente usualmente tiene 2 propósitos:
 
-- JavaScript: Lenguaje base para la lógica del proyecto.
+* Ser reutilizable
+* Separar la funcionalidad
 
-- HTML y CSS: Para estructurar y estilizar la aplicación.
+Siempre debe tener un return() que es lo que se muestra en la pantalla.
 
-- Vite: Herramienta de desarrollo rápido para React.
+## ¿Qué es JSX?
 
-#
+JSX es una extensión del lenguaje desarrollada por Meta (Facebook) para React. Parece JS pero muestra código de HTML, y básicamente es un lenguaje de Templates/Vistas que muestra el HTML pero tiene todas las funciones de JavaScript.
 
-<h3>🚀 Características del proyecto</h3>
+Una vez compilado son archivos JS con funciones y objetos.
 
-<p>
-    Visualización de una lista de productos disponibles.
-    Agregar y eliminar productos del carrito.
-    Actualización en tiempo real de la cantidad de productos y el precio total.
-    Diseño modular para mantener el código organizado y reutilizable.
-    
-</p>
+## Reglas en JSX
 
-#
+A diferencia de HTML, que no es estricto, en JSX si un elemento HTML tiene una etiqueta de apertura, deberás tener también la de cierre.
 
-<h3>📚 Conceptos aprendidos</h3>
+Las etiquetas de solo apertura como `<link>` `<img>` o `<input>` deberán finalizar con />
 
-<h4>Componentes</h4>
+Cada componente debe tener un return
 
-<p>Aprendí a estructurar la interfaz dividiendo el proyecto en piezas reutilizables, como el carrito, la lista de productos y los botones.</p>
+En este return debe haber máximo un elemento en el nivel máximo
 
-        const Product = ({ name, price, onAdd }) => (
-            <div>
-                <h3>{name}</h3>
-                <p>{price}</p>
-                <button onClick={onAdd}>Agregar al carrito</button>
-            </div>
-        );
+## ¿Qué son los React Hooks o Hooks?
 
-<h4>JSX</h4>
+Los hooks te permiten utilizar las diferentes funciones de React en tus componentes. React tiene una serie de Hooks pero también puedes crear los tuyos.
 
-<p>
-    Uso de sintaxis JSX para combinar lógica y diseño en una estructura legible.
-    Comprendí cómo mapear listas de datos y condicionales dentro de JSX.
-    
-</p>
+Los Hooks están disponibles desde la versión 16.8, previo a ello se tenían que crear Classes para crear y modificar el state, con los Hooks no es necesario
 
-<h4>Hooks</h4>
+Los Hooks se dividen en Básicos y Adicionales
 
-<p>
-    useState: Para manejar el estado del carrito y los productos seleccionados.
-    
-</p>
+### Crear tus propios Hooks
 
-        const [cart, setCart] = useState([]);
+También es posible crear tus propios Hooks, de esta forma podrás separar tu código en funciones reutilizables y sacar todo el beneficio de lo que React ofrece
 
-<p>useEffect: Para realizar acciones secundarias, como actualizar el total del carrito.</p>
+## ¿Qué es el State O Estado en React?
 
-<h4>State Derivado</h4>
+El Estado es una variable con información relevante en nuestra aplicación de React, algunas veces el state pertenece a un componente en específico o algunas veces deseas compartirlo a lo largo de diferentes componentes.
 
-<h4>Calculé información derivada, como el precio total del carrito, basado en el estado existente.</h4>
+Piensa en el state como el resultado de alguna interacción en el sitio o aplicación web: el listado de clientes, la imagen a mostrar en una galería, si un usuario está autenticado o no.
 
-        const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+El state es creado con el hook `useState()`
 
-<h4>Custom Hooks</h4>
+### React reacciona en base al State
 
-<p>Creé un hook personalizado para manejar la lógica del carrito, encapsulando funcionalidades como agregar y eliminar productos.</p>
+Cada que tu state cambia, tu aplicación de React va a renderizar y actualizarse con esos cambios, no es necesario hacer nada más y tu interfaz siempre estará sincronizada con el state.
 
-        const useCart = () => {
-            const [cart, setCart] = useState([]);
-            const addToCart = (product) => { /* lógica aquí */ };
-            return { cart, addToCart };
-        };
+Para modificar el state, se utiliza la función que extraemos cuando declaramos el state en nuestro componente.
+
+### Reglas de los Hooks en React
+
+Los Hooks se colocan en la parte superior de tus componentes de React. No se deben colocar dentro de condicionales, tampoco después de un return.
+
+## El Hook useEffect
+
+Después de useState es el más utilizado. useEffect siempre es un callback, que dependiendo como lo declares va a realizar diferentes acciones.
+
+Es el sustituto de lo que antes era `componentDidMount()` y `componentDidUpdate()`
+
+### Usos de useEffect
+
+Al ejecutarse automáticamente cuando el componente está listo, es un buen lugar para colocar código para consultar una API o LocalStorage.
+
+Debido a que le podemos pasar una dependencia y estar escuchando por los cambios que suceden en una variable, puede actualizar el componente cuando ese cambio suceda.
+
+Dependiendo del valor que pasemos en el array de dependencias ( o no pasamos nada) ei hook de useЕſſect hará algo diferente.
+
+## Statements En JavaScript
+
+Una app de JS es una serie de statements, cada statement es una instrucción para hacer algo.
+
+Algunos Statements son:
+
+* Creación de variables
+* Código condicionales con if
+* Lanzar errores con throw new Error()
+* Iterar con While o For
+
+## Expressions en JavaScript
+
+Una expresión es algo que produce un valor. Algunas Expressions son:
+
+* Ternarios
+* Utilizar un Array Method que genere un nuevo Array. 
+* `.map()` que genera un nuevo a diferencia de un .`forEach()`
+
+## ¿Qué son los Props?
+
+Los componentes de React utilizan Props para comunicarse entre ellos. Puedes pasarle información de un componente padre al hijo por medio de estos props.
+
+Los props se parecen a los atributos en HTML, pero puedes pasarle arrays, objetos o funciones.
+
+Los Props se pasan del padre al hijo, nunca se pueden pasar del hijo al padre
+
+Si tienes un state que se va a pasar por diferentes componentes, lo mejor es colocarlo en el archivo principal.
+
+Cada Nivel de Componentes deberá tomar y pasar el Prop hacia otros componentes, tecnologías como Redux, Zustand, Jotai o Context evitan tener que hacerlo de esta forma.
+
+## Sobre los Eventos En React
+
+La forma en que React maneja los eventos es muy similar a como lo hace JavaScript de forma nativa con algunos cambios.
+
+Los eventos son camelCase, es decir en lugar de onchange se utiliza onChange, en lugar de onclick se utiliza onClick
+
+También a diferencia de JS y HTML, donde se coloca el nombre de la función en un string en React (JSX) se utiliza la función entre llaves { }
