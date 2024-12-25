@@ -51,7 +51,7 @@ export const useCart = () => {
   }
 
   const increaseQuantity = (id) => {
-    const updateCart = cart.map(item => {
+    const updatedCart = cart.map(item => {
       if (item.id === id && item.quantity < MAX_ITEMS) {
         return {
           ...item,
@@ -60,11 +60,11 @@ export const useCart = () => {
       }
       return item
     })
-    setCart(updateCart)
+    setCart(updatedCart)
   }
 
   const decreaseQuantity = (id) => {
-    const updateCart = cart.map(item => {
+    const updatedCart = cart.map(item => {
       if (item.id === id && item.quantity > MIN_ITEMS) {
         return {
           ...item,
@@ -73,7 +73,7 @@ export const useCart = () => {
       }
       return item
     })
-    setCart(updateCart)
+    setCart(updatedCart)
   }
 
   // state derivado
