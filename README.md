@@ -1,6 +1,6 @@
 # Proyecto de Aprendizaje de React
 
-En este proyecto, aprendí a que hay diferentes maneras de escribir CSS en React, como CSS Plano, SASS, Modulos CSS, Styled Components, una librería basaba en componentes y Frameworks CSS.
+En este proyecto, aprendí que hay diferentes maneras de escribir CSS en React, como CSS Plano, SASS, Modulos CSS, Styled Components, una librería basaba en componentes y Frameworks CSS.
 
 ## ¿Qué son los componentes en React?
 
