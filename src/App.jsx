@@ -1,68 +1,20 @@
-import { useState } from "react"
 import { Guitar } from "./components/Guitar"
 import { Header } from "./components/Header"
-import { db } from "./data/db"
-
-const MAX_ITEMS = 5
-const MIN_ITEMS = 1
+import { useCart } from "./hooks/useCart"
 
 export const App = () => {
-  const [data] = useState(db)
-  const [cart, setCart] = useState([])
 
-  const addToCart = (item) => {
-    // verificar si ya existe
-    const itemExists = cart.find(guitar => guitar.id === item.id)
-    if (itemExists) {
-      if (itemExists.quantity >= MAX_ITEMS) return
-      const updateCart = cart.map(guitar => {
-        if (guitar.id === item.id) {
-          return {
-            ...guitar,
-            quantity: guitar.quantity + 1,
-          }
-        }
-        return guitar
-      })
-      setCart(updateCart)
-    } else {
-      item.quantity = 1
-      setCart([...cart, item])
-    }
-  }
-
-  const removeFromCart = (id) => {
-    const updatedCart = cart.filter(guitar => guitar.id !== id)
-    setCart(updatedCart)
-  }
-
-  const cleanCart = () => setCart([])
-
-  const increaseQuantity = (id) => {
-    const updatedCart = cart.map(guitar => {
-      if (guitar.id === id && guitar.quantity < MAX_ITEMS) {
-        return {
-          ...guitar,
-          quantity: guitar.quantity + 1
-        }
-      }
-      return guitar
-    })
-    setCart(updatedCart)
-  }
-
-  const decreaseQuantity = (id) => {
-    const updatedCart = cart.map(guitar => {
-      if (guitar.id === id && guitar.quantity > MIN_ITEMS) {
-        return {
-          ...guitar,
-          quantity: guitar.quantity - 1
-        }
-      }
-      return guitar
-    })
-    setCart(updatedCart)
-  }
+  const { 
+    data, 
+    cart, 
+    addToCart, 
+    cleanCart, 
+    decreaseQuantity, 
+    increaseQuantity, 
+    removeFromCart, 
+    isEmpty, 
+    total, 
+  } = useCart()
 
   return (
     <>
@@ -72,6 +24,8 @@ export const App = () => {
         cleanCart={cleanCart} 
         increaseQuantity={increaseQuantity} 
         decreaseQuantity={decreaseQuantity} 
+        isEmpty={isEmpty} 
+        total={total} 
       />
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
