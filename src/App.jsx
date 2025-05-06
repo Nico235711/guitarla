@@ -1,28 +1,31 @@
-import { useState } from "react";
 import Guitar from "./components/Guitar";
 import Header from "./components/Header";
-import { db } from "./data/db";
+import { useCart } from "./hooks/useCart";
 
 export default function App() {
-  const [data] = useState(db)
-  const [cart, setCart] = useState([])
-
-  const addToCart = (item) => {
-    // también puedo hacerlo con un map
-    const itemExists = cart.findIndex(guitar => guitar.id === item.id)
-    if (itemExists >= 0) {
-      const updatedCart = [...cart]
-      updatedCart[itemExists].quantity++ // si lo hago así, necesito el indice
-      setCart(updatedCart)
-    } else {
-      item.quantity = 1
-      setCart([...cart, item])
-    }
-  }
+  const { 
+    data, 
+    cart, 
+    addToCart, 
+    removeFromCart, 
+    increaseQuantity, 
+    decreaseQuantity, 
+    cleanCart, 
+    isEmpty, 
+    cartTotal 
+  } = useCart()
 
   return (
     <>
-      <Header />
+      <Header
+        cart={cart} 
+        removeFromCart={removeFromCart} 
+        increaseQuantity={increaseQuantity} 
+        decreaseQuantity={decreaseQuantity} 
+        cleanCart={cleanCart} 
+        isEmpty={isEmpty} 
+        cartTotal={cartTotal} 
+      />
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
         <div className="row mt-5">
