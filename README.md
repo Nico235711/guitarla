@@ -31,13 +31,13 @@ cd guitarla
 Instalar dependencias:
 
 ```bash
-npm install o npm i
+pnpm install
 ```
 
 Iniciar el servidor de desarrollo:
 
 ```bash
-npm run dev
+pnpm
 ```
 
 ## Estructura del proyecto
